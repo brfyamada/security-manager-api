@@ -1,0 +1,5 @@
+TAGS:
+
+** Procure pelas tags para aprender a aplicar as ferramentas.
+
+[SPRING SECURITY] Configuration for Spring Security using database Resource
