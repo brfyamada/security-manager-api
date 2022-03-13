@@ -24,4 +24,9 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 
 
+    //[SPRING SECURITY] [JWT] [STEP 1] Adding jwttoken lib
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+
+
 }
