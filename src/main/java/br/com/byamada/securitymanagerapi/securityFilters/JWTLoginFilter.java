@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
 
-import static br.com.byamada.securitymanagerapi.config.SecurityConstraints.*;
+import static br.com.byamada.securitymanagerapi.config.security.SecurityConstraints.*;
 
 public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
 

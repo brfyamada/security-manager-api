@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static br.com.byamada.securitymanagerapi.config.SecurityConstraints.*;
+import static br.com.byamada.securitymanagerapi.config.security.SecurityConstraints.*;
 
 public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
     private final UserDerailsService userDerailsService;

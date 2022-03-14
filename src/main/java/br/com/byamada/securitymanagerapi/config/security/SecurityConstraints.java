@@ -1,5 +1,5 @@
 //[SPRING SECURITY] [JWT] [STEP 2] Configuring Constraints for Jwt config
-package br.com.byamada.securitymanagerapi.config;
+package br.com.byamada.securitymanagerapi.config.security;
 
 public class SecurityConstraints {
 
