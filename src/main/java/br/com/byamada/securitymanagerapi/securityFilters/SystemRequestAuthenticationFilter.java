@@ -36,7 +36,6 @@ public class SystemRequestAuthenticationFilter extends GenericFilterBean {
 
     private Authentication getAuthentication(HttpServletRequest request) {
         String appToken = request.getHeader("X-App-Token");
-        log.info("Valor da chave {}", authenticationToken);
         if(authenticationToken.equals(appToken)){
             return new UsernamePasswordAuthenticationToken("SYSTEM",null, Collections.singletonList(new SimpleGrantedAuthority("ROLE_SYSTEM")));
         }

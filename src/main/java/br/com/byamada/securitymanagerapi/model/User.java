@@ -1,4 +1,4 @@
-//[SPRING SECURITY] [STEP 2] Creating a Entity to manage users
+//[SPRING SECURITY] [STEP 2] Creating an Entity to manage users
 package br.com.byamada.securitymanagerapi.model;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +28,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idt_use_id")
+    @Column(name = "idt_user_id")
     private Long Id;
 
     @Column(name = "des_name")

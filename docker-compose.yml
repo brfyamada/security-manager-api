@@ -1,31 +1,31 @@
 version: '3.8'
 
 services:
-  postgres-compose:
+  postgres-security:
     image: postgres:10.3-alpine
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "security-manager"
     ports:
-      - "5432:5432"
+      - "5433:5433"
     volumes:
       - "./docker-init-db-scripts:/docker-entrypont-initdb.d"
       - "./postgres-data:/var/lib/postgresql/data"
     networks:
       - postgres-compose-network
 
-  pgadmin-compose:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "postgres@email.com"
-      PGADMIN_DEFAULT_PASSWORD: "postgres"
-    ports:
-      - "15432:80"
-    depends_on:
-      - postgres-compose
-    networks:
-      - postgres-compose-network
+#  pgadmin-compose:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "postgres@email.com"
+#      PGADMIN_DEFAULT_PASSWORD: "postgres"
+#    ports:
+#      - "15432:80"
+#    depends_on:
+#      - postgres-security
+#    networks:
+#      - postgres-compose-network
 
 networks:
   postgres-compose-network:

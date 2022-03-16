@@ -1,5 +1,5 @@
 CREATE TABLE user_auth (
-    idt_use_id BIGSERIAL NOT NULL,
+    idt_user_id BIGSERIAL NOT NULL,
     des_name varchar(255) NOT NULL,
     des_email varchar(150) NOT NULL,
     des_password varchar(150) NOT NULL,
@@ -8,5 +8,7 @@ CREATE TABLE user_auth (
     dat_update TIMESTAMP,
     des_user_operation varchar(50) NOT NULL
 );
+
+ALTER TABLE user_auth ADD CONSTRAINT idt_user_id_pk PRIMARY KEY (idt_user_id);
 
 INSERT INTO user_auth VALUES (1,'admin','admin@email.com', '$2a$10$mRhyXS6DO0nt22BYOL/tK.y24hPumeWa71hsvCJqj9PPK1IowMXz6', 'ROLE_USER,ROLE_ADMIN', now(), null, 'customer-service-api');

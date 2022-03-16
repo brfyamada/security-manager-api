@@ -27,6 +27,10 @@ dependencies {
     //[SPRING SECURITY] [JWT] [STEP 1] Adding jwttoken lib
     implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 
+    //[SPRING SLEUTH] [Step 1] adding Sleuth lib
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-sleuth', version: '3.1.1'
+
+
 
 
 }
