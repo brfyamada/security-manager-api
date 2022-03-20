@@ -1,0 +1,33 @@
+/* [KAFKA - AVRO] [step 5] create a contract for the object */
+{
+    "type": "record",
+    "namespace": "br.com.byamada.customerserviceapi.avro",
+    "name": "CustomerDTO",
+    "version": "1",
+    "fields": [
+        {
+            "name": "name",
+            "type": "string",
+            "doc": "Customer name"
+        },
+        {
+            "name" : "document",
+            "type":  "string",
+            "doc" : "Customer document number"
+        },
+        {
+            "name" : "age",
+            "type":  "int",
+            "doc": "Customer age"
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
