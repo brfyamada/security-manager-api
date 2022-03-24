@@ -62,6 +62,13 @@ dependencies {
         exclude group: 'org.slf4j'
     }
 
+    //[SPRING SECURITY] [OAUTH2] [AUTHORIZATION SERVER] [Step 1] adding lib for oauth2
+    implementation group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.6.3'
+
+
+
+
+
 
 //[KAFKA - AVRO] [step 4] gradle-avro-plugin setting and method to generete avro from gradew
     avro {

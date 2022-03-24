@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class CustomerListener {
 
-
+/*
     @KafkaListener(
             containerFactory = "customerEventListenerFactory",
             topics = "${kafka.customer.topic}",
             groupId = "${kafka.customer.group-id}"
-    )
+    )*/
     public void consume(CustomerDTO message){
         CustomerPostRequest cst = CustomerPostRequest.builder()
                 .name(message.getName())

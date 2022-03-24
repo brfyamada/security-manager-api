@@ -3,3 +3,18 @@ TAGS:
 ** Procure pelas tags para aprender a aplicar as ferramentas.
 
 [SPRING SECURITY] Configuration for Spring Security using database Resource
+
+[SPRING SECURITY] [OAUTH2] [AUTHORIZATION SERVER] Configuring the authorization server with oauth2
+
+
+[SPRING SECURITY] [OAUTH2] [AUTHORIZATION SERVER]
+* Generating a public key to config outh2:
+- First of all install in you r machine openssl
+- execute the command to generate the key:
+     genrsa -out jwt.pem 2048
+
+- execute the command to get the value of private key:
+    openssl rsa -in jwt.pem
+
+- execute the command to get the value of public key:
+    openssl rsa -in jwt.pem -pubout

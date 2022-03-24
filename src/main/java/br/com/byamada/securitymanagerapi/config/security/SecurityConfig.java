@@ -7,13 +7,16 @@ import br.com.byamada.securitymanagerapi.securityFilters.SystemRequestAuthentica
 import br.com.byamada.securitymanagerapi.service.UserDerailsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import static br.com.byamada.securitymanagerapi.config.security.SecurityConstraints.SIGN_UP_URL;
@@ -39,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(PUBLIC_MATCHERS).permitAll()
                 .antMatchers(HttpMethod.GET, SIGN_UP_URL).permitAll()
@@ -49,15 +53,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JWTLoginFilter(authenticationManager()))
                 .addFilter(new JWTAuthenticationFilter( authenticationManager(), userDerailsService))
                 .addFilterBefore(systemRequestAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         //só para gerar password de teste
-        //log.info("Password encoder {}", passwordEncoder.encode("admin"));
-        auth.userDetailsService(userDerailsService).passwordEncoder(passwordEncoder);
+        //log.info("Password encoder {}", passwordEncoder().encode("admin"));
+        auth.userDetailsService(userDerailsService).passwordEncoder(passwordEncoder());
     }
+
+    //[SPRING SECURITY] [OAUTH2] [AUTHORIZATION SERVER] [Step 3] It's necessary to config OauthConfig class
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
 
 }
